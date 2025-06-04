@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trading WebSite</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="background"></div>
+  <div class="content">
+    <h1 class="fade-up">The Trading Website™</h1>
+    <p class="fade-up">This website contains all the important data for traders.</p>
+    
+    <button class="options-button fade-up" onclick="toggleOptions()">Options</button>
+    
+    <div class="link-container">
+      <a href="page1.html" class="custom-link" target="_blank">COT Reports</a>
+      <a href="page2.html" class="custom-link" target="_blank">Retail Positoning</a>
+      <a href="page3.html" class="custom-link" target="_blank">Curency Tracker</a>
+      <a href="http://127.0.0.1:5000" class="custom-link" target="_blank">News Terminal</a>
+    </div>
+  </div>
+
+  <script>
+    function toggleOptions() {
+      const options = document.querySelector('.link-container');
+      options.classList.toggle('show');
+    }
+  </script>
+</body>
+</html>

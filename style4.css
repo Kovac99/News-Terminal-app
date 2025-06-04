@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* Background with blur */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('tradingimage.avif');
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    z-index: -1;
+}
+
+/* Content in top-left corner */
+.content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 30px;
+    color: #fff;
+    text-align: left;
+    text-shadow:
+        2px 2px 3px rgba(0, 0, 0, 0.5),
+        -2px -2px 3px rgb(255, 255, 255, 0.5);
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3))
+}
+
+/* Heading styles */
+.content h1 {
+    font-size: 60px;
+    margin-bottom: 12px;
+}
+
+/* Paragraph styles */
+.content p {
+    font-size: 30px;
+}
+
+/* Fade up animation */
+.fade-up {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeUp 1.5s ease-out forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.fade-up {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeUp 1.5s ease-out forwards;
+}

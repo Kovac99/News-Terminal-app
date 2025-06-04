@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COT Reports</title>
+    <style>
+        table={
+            width: 100%;
+            border-collapse: collapse;
+            }
+        th, td = {
+            border: 1px solid black;
+            padding: 10px;
+            tetxt-align: center;
+            }
+        .header-row={
+            background-color: darkgreen;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>COT reports data (EUR FX)</h1>
+    <table id="CotTable">
+        <thead>
+            <tr class="header row">
+                <th>Report Date</th>
+                <th>Open Interest</th>
+                <th>NonComm Long</th>
+                <th>NonComm Short</th>
+                <th>Comm Long</th>
+                <th>Comm Short</th>
+                <th>NonRept Long</th>
+                <th>NonRept Short</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        async function loadCotData() {
+            const response = await fetch('/api/eurfx');
+            const data = await response.json();
+            const tbody = document.querySelector('#CotTable tbody');
+
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                <td>${row.report_date}</td>
+                <td>${row.open_interest}</td>
+                <td>${row.noncomm_long}</td>
+                <td>${row.noncomm_short}</td>
+                <td>${row.comm_long}</td>
+                <td>${row.comm_short}</td>
+                <td>${row.nonrept_long}</td>
+                <td>${row.nonrept_short}</td>
+                `;
+                tbody.appnedChild(tr);
+            });
+
+        }
+        
+    </script>
+
+
+    
+
+</body>
+</html>
